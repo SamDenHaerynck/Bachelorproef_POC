@@ -1,0 +1,108 @@
+<html>
+    <head>
+        <title>Stock opinion</title>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!-- inject:css -->
+        <link rel="stylesheet" href="/content/bootstrap-theme.css">
+        <link rel="stylesheet" href="/content/bootstrap.css">
+        <link rel="stylesheet" href="/content/main.css">
+        <link rel="stylesheet" href="/content/materialize/css/materialize.css">
+        <!-- endinject -->
+        <!--<link rel="stylesheet" type="text/css" href="Styles/main.css"/>
+        <link rel="stylesheet" type="text/css" href="content/materialize/css/materialize.css"/>
+        <link rel="stylesheet" type="text/css" href="content/bootstrap.css"/>
+        <link rel="stylesheet" type="text/css" href="content/bootstrap-theme.css"/>-->
+    </head>
+    <body>
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo">Stock opinion</a>
+                <div class="right" style="margin-right: 20px;">
+                    <i class="material-icons right">person_pin</i>
+                    <span id="clientCount"></span>
+                </div>
+                
+            </div>
+        </nav>
+    <div class="container" id="container">
+        <div id="loadpoint"></div>
+        <input type="button" style="display: none" id="start" value="Start"/>
+        <div class="row">
+            <div class="col-md-5">
+                <h4>Stock price</h4>
+                <canvas id="myChart" width="400" height="400"></canvas>
+            </div>
+            <div class="col-md-5"">
+                <h4>Stock change(%)</h4>
+                <canvas id="myBarChart" height="400" width="400"></canvas>
+            </div>
+        </div>
+        <div class="row">
+            <ul class="collection" id="discussion"></ul>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="message" type="text" class="validate">
+                <label for="message">Message</label>
+            </div>
+        </div>
+        <button class="btn waves-effect waves-light" type="submit" name="action" id="sendmessage">Send
+            <i class="material-icons right">send</i>
+        </button>
+        <input type="hidden" id="displayname"/>
+        <input type="hidden" id="avatar"/>
+        <div id="dialog" style="display: none" title="Name/Avatar">
+            <a onclick="openDialog('Boba Fett.png')">
+                <img src="images/Boba Fett.png" alt="" class="circle">
+            </a>
+            <a onclick="openDialog('R2-D2.png')">
+                <img src="images/R2-D2.png" alt="" class="circle">
+            </a>
+        </div>
+        <button id="launch" type="button" style="display: none" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+            Launch demo modal
+        </button>
+        <div class="modal fade" tabindex="-1" role="dialog" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Avatar</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <a onclick=" setAvatar('Boba Fett.png') ">
+                                <img src="images/Boba Fett.png" alt="" class="circle">
+                            </a>
+                            <a onclick=" setAvatar('R2-D2.png') ">
+                                <img src="images/R2-D2.png" alt="" class="circle">
+                            </a>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input id="username" type="text" class="validate">
+                                <label for="username">Username</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" data-dismiss="modal" class="btn btn-primary">Ok</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <script src="Scripts/jquery-2.1.1.js"></script>
+        <script src="Scripts/jquery.signalR-2.1.0.js"></script>
+        <script src="signalr/hubs"></script>
+        <!--<script src="client.js"></script>-->
+        <script src="Scripts/Chart.js"></script>
+        <script src="Scripts/materialize/materialize.js"></script>
+        <script src="Scripts/bootstrap.js"></script>
+        <script src="Scripts/react.js"></script>
+        <script src="Scripts/react-dom.js"></script>
+        <!-- inject:js -->
+        <script src="/client.min.js"></script>
+        <!-- endinject -->
+    </body>
+</html>

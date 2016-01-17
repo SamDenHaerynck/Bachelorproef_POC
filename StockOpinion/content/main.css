@@ -1,0 +1,9 @@
+﻿#discussion {
+    overflow: auto;
+    max-height: 400px;
+    min-height: 200px;
+}
+#container {
+    margin-top: 40px;
+}
+
